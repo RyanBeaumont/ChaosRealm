@@ -1,6 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Citizens</h1>
+<% if citizen_signed_in? %>
+  <div> Welcome <%= current_citizen.email %> </div>
+  <%= button_to "Sign out", destroy_citizen_session_path, method: :delete %>
+<% else %>
+  <%= button_to "Sign in", new_citizen_session_path %>
+<% end %>
+
+<h1>Citizens of the Realm</h1>
 
 <div id="citizens">
   <% @citizens.each do |citizen| %>
