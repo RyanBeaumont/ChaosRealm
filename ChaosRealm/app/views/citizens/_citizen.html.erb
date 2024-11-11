@@ -1,4 +1,10 @@
 <div id="<%= dom_id citizen %>">
+  <% if citizen.profile_picture.attached? %>
+    <%= image_tag citizen.profile_picture, size: "150x150", alt: "Profile Picture" %>
+  <% else %>
+    <%= image_tag 'DefaultUser', size: "150x150", alt: "Profile Picture" %>
+  <% end %>  
+
   <p>
     <strong>Display name:</strong>
     <%= citizen.display_name %>

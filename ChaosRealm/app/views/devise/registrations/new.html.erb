@@ -31,6 +31,11 @@
     <%= f.text_area :bio, required: false %>
   </div>
 
+  <div class="field">
+    <%= form.label :profile_picture %><br>
+    <%= form.file_field :profile_picture %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

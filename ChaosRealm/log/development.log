@@ -1097,3 +1097,350 @@ Processing by CitizensController#show as HTML
 Completed 200 OK in 95ms (Views: 57.7ms | ActiveRecord: 0.9ms | Allocations: 2999)
 
 
+  [1m[36mActiveRecord::InternalMetadata Load (3.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateActiveStorageTables (20241111194159)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241111194159') RETURNING "version"[0m
+  [1m[36mTRANSACTION (12.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/citizens/" for 172.17.0.1 at 2024-11-11 19:56:04 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (4.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CitizensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (4.9ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:14
+  Rendered citizens/_citizen.html.erb (Duration: 18.9ms | Allocations: 1848)
+  Rendered citizens/index.html.erb within layouts/application (Duration: 224.6ms | Allocations: 13014)
+  Rendered layout layouts/application.html.erb (Duration: 226.6ms | Allocations: 13131)
+Completed 500 Internal Server Error in 483ms (ActiveRecord: 86.8ms | Allocations: 19582)
+
+
+  
+ActionView::Template::Error (undefined method `profile_picture' for nil:NilClass):
+    1: <div id="<%= dom_id citizen %>">
+    2:   <% if @citizen.profile_picture.attached? %>
+    3:     <%= image_tag @citizen.profile_picture, size: "150x150", alt: "Profile Picture" %>
+    4:   <% else %>
+    5:     <%= image_tag 'DefaultUser', size: "150x150", alt: "Profile Picture" %>
+  
+app/views/citizens/_citizen.html.erb:2
+app/views/citizens/index.html.erb:15
+app/views/citizens/index.html.erb:14
+Started GET "/citizens/" for 172.17.0.1 at 2024-11-11 19:56:58 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (8.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:14
+  [1m[36mActiveStorage::Attachment Load (1.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 1998.7ms | Allocations: 33092)
+  Rendered citizens/index.html.erb within layouts/application (Duration: 2090.6ms | Allocations: 38871)
+  Rendered layout layouts/application.html.erb (Duration: 2409.0ms | Allocations: 52957)
+Completed 200 OK in 2469ms (Views: 2340.8ms | ActiveRecord: 83.1ms | Allocations: 54937)
+
+
+Started GET "/citizens/3" for 172.17.0.1 at 2024-11-11 19:57:06 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCitizen Load (0.9ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:66:in `set_citizen'
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 45.8ms | Allocations: 1218)
+  Rendered citizens/show.html.erb within layouts/application (Duration: 56.4ms | Allocations: 1771)
+  Rendered layout layouts/application.html.erb (Duration: 102.6ms | Allocations: 2770)
+Completed 200 OK in 146ms (Views: 104.9ms | ActiveRecord: 1.6ms | Allocations: 4199)
+
+
+Started GET "/citizens/sign_in" for 172.17.0.1 at 2024-11-11 19:57:10 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 9.2ms | Allocations: 577)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 78.2ms | Allocations: 3144)
+  Rendered layout layouts/application.html.erb (Duration: 126.8ms | Allocations: 4332)
+Completed 200 OK in 239ms (Views: 210.7ms | ActiveRecord: 0.0ms | Allocations: 5847)
+
+
+Started POST "/citizens/sign_in" for 172.17.0.1 at 2024-11-11 19:57:20 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "citizen"=>{"email"=>"supremeoverlordryan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."email" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["email", "supremeoverlordryan@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Update (5.0ms)[0m  [1m[33mUPDATE "citizens" SET "updated_at" = ?, "remember_created_at" = ? WHERE "citizens"."id" = ?[0m  [["updated_at", "2024-11-11 19:57:21.575683"], ["remember_created_at", "2024-11-11 19:57:21.573658"], ["id", 3]]
+  [1m[36mTRANSACTION (12.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/citizens
+Completed 303 See Other in 458ms (ActiveRecord: 18.5ms | Allocations: 8729)
+
+
+Started GET "/citizens" for 172.17.0.1 at 2024-11-11 19:57:21 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (2.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/citizens/index.html.erb:3
+  [1m[36mCitizen Load (0.5ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:14
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 39.2ms | Allocations: 1229)
+  Rendered citizens/index.html.erb within layouts/application (Duration: 54.0ms | Allocations: 2771)
+  Rendered layout layouts/application.html.erb (Duration: 102.0ms | Allocations: 3784)
+Completed 200 OK in 122ms (Views: 102.0ms | ActiveRecord: 3.1ms | Allocations: 4090)
+
+
+Started GET "/citizens/3" for 172.17.0.1 at 2024-11-11 19:57:24 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCitizen Load (1.2ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:66:in `set_citizen'
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 47.5ms | Allocations: 1218)
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/citizens/show.html.erb:6
+  Rendered citizens/show.html.erb within layouts/application (Duration: 53.5ms | Allocations: 3119)
+  Rendered layout layouts/application.html.erb (Duration: 55.5ms | Allocations: 3210)
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 2.3ms | Allocations: 3804)
+
+
+  
+ActionView::Template::Error (undefined method `edit_citizen_path' for #<ActionView::Base:0x000000000107e8>):
+    4: 
+    5: <div>
+    6: <% if @citizen == current_citizen %>
+    7:   <%= link_to "Edit Profile", edit_citizen_path(@citizen) %>
+    8:   <%= button_to "Destroy this profile", @citizen, method: :delete %>
+    9: <% end %>
+   10: </div>
+  
+app/views/citizens/show.html.erb:7
+Started GET "/citizens/3" for 172.17.0.1 at 2024-11-11 19:57:25 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:66:in `set_citizen'
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 51.5ms | Allocations: 1223)
+  [1m[36mCitizen Load (0.9ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/citizens/show.html.erb:6
+  Rendered citizens/show.html.erb within layouts/application (Duration: 59.3ms | Allocations: 3115)
+  Rendered layout layouts/application.html.erb (Duration: 61.7ms | Allocations: 3206)
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 2.2ms | Allocations: 3792)
+
+
+  
+ActionView::Template::Error (undefined method `edit_citizen_path' for #<ActionView::Base:0x00000000010928>):
+    4: 
+    5: <div>
+    6: <% if @citizen == current_citizen %>
+    7:   <%= link_to "Edit Profile", edit_citizen_path(@citizen) %>
+    8:   <%= button_to "Destroy this profile", @citizen, method: :delete %>
+    9: <% end %>
+   10: </div>
+  
+app/views/citizens/show.html.erb:7
+Started GET "/citizens" for 172.17.0.1 at 2024-11-11 19:57:45 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/citizens/index.html.erb:3
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:14
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 48.9ms | Allocations: 1222)
+  Rendered citizens/index.html.erb within layouts/application (Duration: 59.7ms | Allocations: 2633)
+  Rendered layout layouts/application.html.erb (Duration: 118.5ms | Allocations: 3644)
+Completed 200 OK in 142ms (Views: 118.7ms | ActiveRecord: 2.0ms | Allocations: 3902)
+
+
+Started GET "/citizens/3" for 172.17.0.1 at 2024-11-11 19:57:46 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:66:in `set_citizen'
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 44.8ms | Allocations: 1218)
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/citizens/show.html.erb:6
+  Rendered citizens/show.html.erb within layouts/application (Duration: 52.2ms | Allocations: 3110)
+  Rendered layout layouts/application.html.erb (Duration: 54.0ms | Allocations: 3201)
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 1.8ms | Allocations: 3794)
+
+
+  
+ActionView::Template::Error (undefined method `edit_citizen_path' for #<ActionView::Base:0x00000000010a90>):
+    4: 
+    5: <div>
+    6: <% if @citizen == current_citizen %>
+    7:   <%= link_to "Edit Profile", edit_citizen_path(@citizen) %>
+    8:   <%= button_to "Destroy this profile", @citizen, method: :delete %>
+    9: <% end %>
+   10: </div>
+  
+app/views/citizens/show.html.erb:7
+Started GET "/citizens" for 172.17.0.1 at 2024-11-11 19:57:55 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/citizens/index.html.erb:3
+  [1m[36mCitizen Load (0.4ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:14
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 43.7ms | Allocations: 1222)
+  Rendered citizens/index.html.erb within layouts/application (Duration: 53.2ms | Allocations: 2633)
+  Rendered layout layouts/application.html.erb (Duration: 92.7ms | Allocations: 3644)
+Completed 200 OK in 114ms (Views: 93.6ms | ActiveRecord: 1.9ms | Allocations: 3902)
+
+
+Started GET "/citizens" for 172.17.0.1 at 2024-11-11 19:58:27 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (7.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/citizens/index.html.erb:3
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:14
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 72.8ms | Allocations: 4494)
+  Rendered citizens/index.html.erb within layouts/application (Duration: 168.6ms | Allocations: 11080)
+  Rendered layout layouts/application.html.erb (Duration: 534.7ms | Allocations: 25036)
+Completed 200 OK in 598ms (Views: 460.6ms | ActiveRecord: 89.4ms | Allocations: 26975)
+
+
+Started GET "/citizens/3" for 172.17.0.1 at 2024-11-11 19:58:30 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCitizen Load (1.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:66:in `set_citizen'
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (1.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 48.1ms | Allocations: 1220)
+  [1m[36mCitizen Load (2.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/citizens/show.html.erb:6
+  Rendered citizens/show.html.erb within layouts/application (Duration: 66.0ms | Allocations: 2448)
+  Rendered layout layouts/application.html.erb (Duration: 113.0ms | Allocations: 3447)
+Completed 200 OK in 159ms (Views: 111.9ms | ActiveRecord: 4.8ms | Allocations: 4760)
+
+
+Started GET "/citizens/3/edit" for 172.17.0.1 at 2024-11-11 19:58:32 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCitizen Load (0.9ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCitizen Load (2.5ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:66:in `set_citizen'
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/edit.html.erb within layouts/application
+  Rendered citizens/_form.html.erb (Duration: 40.3ms | Allocations: 1556)
+  Rendered citizens/edit.html.erb within layouts/application (Duration: 94.0ms | Allocations: 1879)
+  Rendered layout layouts/application.html.erb (Duration: 152.5ms | Allocations: 2996)
+Completed 200 OK in 197ms (Views: 156.2ms | ActiveRecord: 3.3ms | Allocations: 4989)
+
+
+Started GET "/citizens" for 172.17.0.1 at 2024-11-11 19:58:36 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/citizens/index.html.erb:3
+  [1m[36mCitizen Load (1.5ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:14
+  [1m[36mActiveStorage::Attachment Load (1.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 49.0ms | Allocations: 1217)
+  Rendered citizens/index.html.erb within layouts/application (Duration: 62.2ms | Allocations: 2622)
+  Rendered layout layouts/application.html.erb (Duration: 104.7ms | Allocations: 3624)
+Completed 200 OK in 127ms (Views: 103.3ms | ActiveRecord: 3.4ms | Allocations: 3883)
+
+
+Started DELETE "/citizens/sign_out" for 172.17.0.1 at 2024-11-11 19:58:42 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCitizen Update (3.5ms)[0m  [1m[33mUPDATE "citizens" SET "updated_at" = ?, "remember_created_at" = ? WHERE "citizens"."id" = ?[0m  [["updated_at", "2024-11-11 19:58:42.460352"], ["remember_created_at", nil], ["id", 3]]
+  [1m[36mTRANSACTION (9.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 49ms (ActiveRecord: 13.8ms | Allocations: 5403)
+
+
+Started GET "/" for 172.17.0.1 at 2024-11-11 19:58:42 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (2.2ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:14
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 39.4ms | Allocations: 1217)
+  Rendered citizens/index.html.erb within layouts/application (Duration: 46.9ms | Allocations: 2048)
+  Rendered layout layouts/application.html.erb (Duration: 81.3ms | Allocations: 3056)
+Completed 200 OK in 103ms (Views: 82.1ms | ActiveRecord: 2.7ms | Allocations: 3361)
+
+
+Started GET "/citizens/3" for 172.17.0.1 at 2024-11-11 19:58:44 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCitizen Load (1.3ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:66:in `set_citizen'
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 47.7ms | Allocations: 1218)
+  Rendered citizens/show.html.erb within layouts/application (Duration: 49.8ms | Allocations: 1552)
+  Rendered layout layouts/application.html.erb (Duration: 96.7ms | Allocations: 2555)
+Completed 200 OK in 122ms (Views: 98.5ms | ActiveRecord: 1.9ms | Allocations: 3150)
+
+
