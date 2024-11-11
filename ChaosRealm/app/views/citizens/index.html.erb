@@ -4,7 +4,8 @@
   <div> Welcome <%= current_citizen.email %> </div>
   <%= button_to "Sign out", destroy_citizen_session_path, method: :delete %>
 <% else %>
-  <%= button_to "Sign in", new_citizen_session_path %>
+  <%= link_to "Sign Up", new_citizen_registration_path %> |
+  <%= link_to "Log In", new_citizen_session_path %>
 <% end %>
 
 <h1>Citizens of the Realm</h1>
@@ -18,4 +19,3 @@
   <% end %>
 </div>
 
-<%= link_to "New citizen", new_citizen_path %>
