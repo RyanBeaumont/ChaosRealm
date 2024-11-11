@@ -1,0 +1,125 @@
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-11-11 18:35:12.314714', '2024-11-11 18:35:12.314719') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCitizens (20241111183417)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "citizens" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "display_name" varchar, "bio" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241111183417') RETURNING "version"[0m
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 172.17.0.1 at 2024-11-11 18:36:13 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-7.1.5/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-7.1.5/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.0ms | Allocations: 377)
+Completed 200 OK in 609ms (Views: 123.9ms | ActiveRecord: 0.0ms | Allocations: 7931)
+
+
+Started GET "/citizens" for 172.17.0.1 at 2024-11-11 18:36:20 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (2.2ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:6
+  Rendered citizens/index.html.erb within layouts/application (Duration: 59.6ms | Allocations: 1466)
+  Rendered layout layouts/application.html.erb (Duration: 2566.6ms | Allocations: 95001)
+Completed 200 OK in 2970ms (Views: 2518.6ms | ActiveRecord: 65.8ms | Allocations: 104986)
+
+
+Started GET "/citizens/new" for 172.17.0.1 at 2024-11-11 18:36:28 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/new.html.erb within layouts/application
+  Rendered citizens/_form.html.erb (Duration: 234.5ms | Allocations: 4953)
+  Rendered citizens/new.html.erb within layouts/application (Duration: 253.5ms | Allocations: 5274)
+  Rendered layout layouts/application.html.erb (Duration: 311.2ms | Allocations: 6378)
+Completed 200 OK in 437ms (Views: 313.8ms | ActiveRecord: 5.8ms | Allocations: 12550)
+
+
+Started POST "/citizens" for 172.17.0.1 at 2024-11-11 18:36:36 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "citizen"=>{"display_name"=>"meep", "bio"=>"meep meep"}, "commit"=>"Create Citizen"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/citizens_controller.rb:27:in `block in create'
+  [1m[36mCitizen Create (12.2ms)[0m  [1m[32mINSERT INTO "citizens" ("display_name", "bio", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["display_name", "meep"], ["bio", "meep meep"], ["created_at", "2024-11-11 18:36:36.559155"], ["updated_at", "2024-11-11 18:36:36.559155"]]
+  ↳ app/controllers/citizens_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (12.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/citizens_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/citizens/1
+Completed 302 Found in 59ms (ActiveRecord: 24.3ms | Allocations: 3432)
+
+
+Started GET "/citizens/1" for 172.17.0.1 at 2024-11-11 18:36:36 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mCitizen Load (7.9ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:63:in `set_citizen'
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/show.html.erb within layouts/application
+  Rendered citizens/_citizen.html.erb (Duration: 8.6ms | Allocations: 183)
+  Rendered citizens/show.html.erb within layouts/application (Duration: 65.0ms | Allocations: 1213)
+  Rendered layout layouts/application.html.erb (Duration: 119.0ms | Allocations: 2321)
+Completed 200 OK in 204ms (Views: 120.9ms | ActiveRecord: 7.8ms | Allocations: 5300)
+
+
+Started GET "/citizens/1/edit" for 172.17.0.1 at 2024-11-11 18:36:39 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCitizen Load (1.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:63:in `set_citizen'
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/edit.html.erb within layouts/application
+  Rendered citizens/_form.html.erb (Duration: 4.5ms | Allocations: 798)
+  Rendered citizens/edit.html.erb within layouts/application (Duration: 16.0ms | Allocations: 1053)
+  Rendered layout layouts/application.html.erb (Duration: 75.4ms | Allocations: 2153)
+Completed 200 OK in 127ms (Views: 78.0ms | ActiveRecord: 1.7ms | Allocations: 2805)
+
+
+Started GET "/citizens" for 172.17.0.1 at 2024-11-11 18:36:39 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (0.5ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:6
+  Rendered citizens/_citizen.html.erb (Duration: 0.2ms | Allocations: 18)
+  Rendered citizens/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 714)
+  Rendered layout layouts/application.html.erb (Duration: 67.7ms | Allocations: 1819)
+Completed 200 OK in 91ms (Views: 70.7ms | ActiveRecord: 0.5ms | Allocations: 2075)
+
+
+Started GET "/citizens/1" for 172.17.0.1 at 2024-11-11 18:36:41 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCitizen Load (0.5ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:63:in `set_citizen'
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/show.html.erb within layouts/application
+  Rendered citizens/_citizen.html.erb (Duration: 0.2ms | Allocations: 18)
+  Rendered citizens/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 465)
+  Rendered layout layouts/application.html.erb (Duration: 56.3ms | Allocations: 1569)
+Completed 200 OK in 84ms (Views: 58.4ms | ActiveRecord: 0.5ms | Allocations: 2169)
+
+
+Started GET "/citizens" for 172.17.0.1 at 2024-11-11 18:36:43 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:6
+  Rendered citizens/_citizen.html.erb (Duration: 0.2ms | Allocations: 18)
+  Rendered citizens/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 728)
+  Rendered layout layouts/application.html.erb (Duration: 78.2ms | Allocations: 1833)
+Completed 200 OK in 103ms (Views: 79.8ms | ActiveRecord: 0.6ms | Allocations: 2085)
+
+
