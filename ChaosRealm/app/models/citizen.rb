@@ -7,6 +7,7 @@ class Citizen < ApplicationRecord
   validates :display_name, presence: true
   
   has_one_attached :profile_picture, dependent: :purge_later
+  has_many :forums, dependent: :destroy
   validate :acceptable_image
 
   private 

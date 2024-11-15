@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_11_194159) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_13_204746) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -53,6 +53,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_11_194159) do
     t.index ["reset_password_token"], name: "index_citizens_on_reset_password_token", unique: true
   end
 
+  create_table "forums", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "citizen_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["citizen_id"], name: "index_forums_on_citizen_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -67,4 +76,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_11_194159) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "forums", "citizens"
 end
