@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Forums</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Created By</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @forums.each do |forum| %>
+      <tr>
+        <td><%= link_to forum.title, forum_path(forum) %></td>
+        <td><%= forum.citizen.display_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if citizen_signed_in? %>
+  <%= link_to 'New Forum', new_forum_path %>
+<% else %>
+  <strong>Log in to create a Forum</strong>
+  <%= link_to "Sign Up", new_citizen_registration_path %> |
+  <%= link_to "Log In", new_citizen_session_path %>
+<% end %>

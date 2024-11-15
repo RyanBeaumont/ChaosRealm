@@ -3,8 +3,8 @@
 <%= render @citizen %>
 
 <div>
-  <%= link_to "Edit this citizen", edit_citizen_path(@citizen) %> |
-  <%= link_to "Back to citizens", citizens_path %>
-
-  <%= button_to "Destroy this citizen", @citizen, method: :delete %>
+<% if @citizen == current_citizen %>
+  <%= link_to "Edit Profile", edit_citizen_path(@citizen) %>
+  <%= button_to "Destroy this profile", @citizen, method: :delete %>
+<% end %>
 </div>
