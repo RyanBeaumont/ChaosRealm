@@ -10,9 +10,14 @@
     <%= javascript_importmap_tags %>
   </head>
 
+  
   <body>
-    <p class="notice"><%= notice %></p> 
+  <header>
+      <%= image_tag "ChaosRealmBanner.gif", alt: "Chaos Realm Banner", class: "header-image" %>
+    </header>
+    <div class="container">
     <p class="alert"><%= alert %></p> 
     <%= yield %>
+    </div>
   </body>
 </html>
