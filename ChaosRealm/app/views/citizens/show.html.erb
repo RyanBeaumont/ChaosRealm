@@ -2,9 +2,25 @@
 
 <%= render @citizen %>
 
+<h2>My Forums</h2>
+<% if @citizen.forums.any? %>
+  <ul>
+    <% @citizen.forums.each do |forum| %>
+      <li>
+        <%= link_to forum.title, forum_path(forum) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>This user has not created any forums yet.</p>
+<% end %>
+
 <div>
 <% if @citizen == current_citizen %>
   <%= link_to "Edit Profile", edit_citizen_path(@citizen) %>
   <%= button_to "Destroy this profile", @citizen, method: :delete %>
 <% end %>
 </div>
+
+<p><%= link_to "Back to Forums", forums_path %> </p>
+<p><%= link_to "Back to All Users", citizens_path %> </p>
