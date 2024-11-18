@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :forums
+  resources :forums do
+    resources :posts, only: [:new, :create, :edit, :update, :destroy]
+  end
   devise_for :citizens
   resources :citizens
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

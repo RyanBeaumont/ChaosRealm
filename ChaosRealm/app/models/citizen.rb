@@ -8,6 +8,7 @@ class Citizen < ApplicationRecord
   
   has_one_attached :profile_picture, dependent: :purge_later
   has_many :forums, dependent: :destroy
+  has_many :posts, dependent: :destroy
   validate :acceptable_image
 
   private 
