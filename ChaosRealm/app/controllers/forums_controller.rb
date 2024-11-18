@@ -6,6 +6,11 @@ class ForumsController < ApplicationController
   def index
     #@forums = Forum.all
     @forums = Forum.includes(:citizen).all
+
+    if params[:search].present?
+      search_term = params[:search].downcase
+      @forums = @forums.joins(:citizen).where('LOWER(forums.title) LIKE ? OR LOWER(citizens.display_name) LIKE ?', "%#{search_term}%", "%#{search_term}%")
+    end
   end
 
   # GET /forums/1 or /forums/1.json

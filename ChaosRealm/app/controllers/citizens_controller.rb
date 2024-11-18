@@ -7,6 +7,11 @@ class CitizensController < ApplicationController
   # GET /citizens or /citizens.json
   def index
     @citizens = Citizen.all
+    
+    if params[:search].present?
+      search_term = params[:search].downcase
+      @citizens = @citizens.where('LOWER(display_name) LIKE ?', "%#{search_term}%")
+    end
   end
 
   # GET /citizens/1 or /citizens/1.json

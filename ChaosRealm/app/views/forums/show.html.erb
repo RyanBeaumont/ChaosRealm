@@ -1,10 +1,47 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @forum %>
+<h1><%= @forum.title %></h1>
+<p><%= @forum.description %></p>
 
-<div>
-  <%= link_to "Edit this forum", edit_forum_path(@forum) %> |
-  <%= link_to "Back to forums", forums_path %>
+<% if @forum.citizen == current_citizen %>
+  <%= link_to "Edit Forum", edit_forum_path(@forum), class: "btn btn-primary" %>
+  <%= button_to "Delete Forum", forum_path(@forum), 
+              method: :delete,  
+              class: "btn btn-danger", 
+              data: { confirm: "Are you sure you want to delete this forum?" } %>
+<% end %>
 
-  <%= button_to "Destroy this forum", @forum, method: :delete %>
-</div>
+<h2>Posts</h2>
+<% if @forum.posts.any? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Created By</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @forum.posts.each do |post| %>
+        <tr>
+          <td><%= link_to post.text.truncate(50), post_path(post) %></td>
+          <td><%= post.citizen.display_name %></td>
+          <td>
+            <% if post.citizen == current_citizen %>
+              <%= link_to "Edit", edit_post_path(post), class: "btn btn-secondary btn-sm" %>
+              <%= link_to "Delete", post_path(post), 
+                          method: :delete, 
+                          data: { confirm: "Are you sure you want to delete this post?" }, 
+                          class: "btn btn-danger btn-sm" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No posts yet. Be the first to post!</p>
+<% end %>
+
+<%= link_to "New Post", new_forum_post_path(forum_id: @forum.id), class: "btn btn-primary" %>
+<%= link_to "Back to Forums", forums_path, class: "btn btn-outline-secondary" %>
