@@ -6969,3 +6969,118 @@ Completed 200 OK in 44ms (Views: 17.5ms | ActiveRecord: 3.1ms | Allocations: 296
   
 ActionController::RoutingError (No route matches [GET] "/assets/bootstrap/scss/bootstrap"):
   
+Started GET "/forums/4/posts/new" for 172.17.0.1 at 2024-11-19 19:52:32 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#new as HTML
+  Parameters: {"forum_id"=>"4"}
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (1.1ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:70:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 268.5ms | Allocations: 16405)
+  Rendered posts/new.html.erb within layouts/application (Duration: 288.6ms | Allocations: 16790)
+  Rendered layout layouts/application.html.erb (Duration: 299.5ms | Allocations: 17877)
+Completed 200 OK in 857ms (Views: 334.9ms | ActiveRecord: 89.3ms | Allocations: 48212)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap/scss/bootstrap"):
+  
+Started GET "/forums/4/posts/new" for 172.17.0.1 at 2024-11-19 19:57:20 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#new as HTML
+  Parameters: {"forum_id"=>"4"}
+  [1m[36mCitizen Load (0.9ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (0.6ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:70:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 171.1ms | Allocations: 16404)
+  Rendered posts/new.html.erb within layouts/application (Duration: 194.6ms | Allocations: 16790)
+  Rendered layout layouts/application.html.erb (Duration: 207.7ms | Allocations: 17875)
+Completed 200 OK in 743ms (Views: 261.2ms | ActiveRecord: 198.2ms | Allocations: 48249)
+
+
+Started POST "/forums/4/posts" for 172.17.0.1 at 2024-11-19 19:57:46 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"text"=>"<h1><strong><em>this is a RICH text post</em></strong></h1>"}, "commit"=>"Create Post", "forum_id"=>"4"}
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (1.2ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:70:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 232.0ms | Allocations: 4553)
+  Rendered posts/new.html.erb within layouts/application (Duration: 233.1ms | Allocations: 4616)
+  Rendered layout layouts/application.html.erb (Duration: 236.7ms | Allocations: 5070)
+Completed 422 Unprocessable Content in 286ms (Views: 239.3ms | ActiveRecord: 1.8ms | Allocations: 9426)
+
+
+Started GET "/forums/" for 172.17.0.1 at 2024-11-19 19:57:53 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (0.9ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 7], ["id", 8]]
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/index.html.erb:29
+  Rendered forums/index.html.erb within layouts/application (Duration: 59.5ms | Allocations: 4605)
+  Rendered layout layouts/application.html.erb (Duration: 63.3ms | Allocations: 5063)
+Completed 200 OK in 108ms (Views: 66.3ms | ActiveRecord: 3.6ms | Allocations: 5766)
+
+
+Started GET "/forums/4" for 172.17.0.1 at 2024-11-19 19:57:55 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mForum Load (0.8ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (2.3ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 4], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:15
+  Rendered forums/show.html.erb within layouts/application (Duration: 44.7ms | Allocations: 4777)
+  Rendered layout layouts/application.html.erb (Duration: 50.2ms | Allocations: 5222)
+Completed 200 OK in 104ms (Views: 48.6ms | ActiveRecord: 4.8ms | Allocations: 5912)
+
+
+Started GET "/forums/4/posts/new" for 172.17.0.1 at 2024-11-19 19:57:56 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  Parameters: {"forum_id"=>"4"}
+  [1m[36mCitizen Load (1.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (1.0ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:70:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 4.2ms | Allocations: 811)
+  Rendered posts/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 874)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 1327)
+Completed 200 OK in 64ms (Views: 18.9ms | ActiveRecord: 2.0ms | Allocations: 3234)
+
+
+Started POST "/forums/4/posts" for 172.17.0.1 at 2024-11-19 19:58:02 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"text"=>"<div><strong><em>aAAAAAA</em></strong></div>"}, "commit"=>"Create Post", "forum_id"=>"4"}
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (1.1ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:70:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 3.5ms | Allocations: 1289)
+  Rendered posts/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1352)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 1805)
+Completed 422 Unprocessable Content in 60ms (Views: 13.8ms | ActiveRecord: 1.9ms | Allocations: 4706)
+
+
