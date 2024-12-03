@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_citizen! #NO post routes are available without log in
-  before_action :set_forum
+  before_action :set_forum, only: %i[new create]
   before_action :set_post, only: %i[ show edit update destroy ]
 
   # GET /posts or /posts.json
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = @forum.posts.build(post_params)
     @post.citizen = current_citizen
 
     respond_to do |format|
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
     @post.destroy!
 
     respond_to do |format|
-      format.html { redirect_to posts_path, status: :see_other, notice: "Post was successfully destroyed." }
+      format.html { redirect_to forums_path(@forum), status: :see_other, notice: "Post was successfully destroyed." }
       format.json { head :no_content }
     end
   end
