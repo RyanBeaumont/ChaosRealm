@@ -4,44 +4,38 @@
 <p><%= @forum.description %></p>
 
 <% if @forum.citizen == current_citizen %>
+<div class="btn-group">
   <%= link_to "Edit Forum", edit_forum_path(@forum), class: "btn btn-primary" %>
   <%= button_to "Delete Forum", forum_path(@forum), 
               method: :delete,  
               class: "btn btn-danger", 
               data: { confirm: "Are you sure you want to delete this forum?" } %>
+</div>
 <% end %>
 
 <h2>Posts</h2>
 <% if @forum.posts.any? %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Created By</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
       <% @forum.posts.each do |post| %>
-        <tr>
-          <td><%= link_to post.text, forum_post_path(@forum, post) %></td>
+          <%= raw post.text.body.to_html %>
+          
           <td><%= post.citizen.display_name %></td>
           <td>
             <% if post.citizen == current_citizen %>
-              <%= link_to "Edit", edit_forum_post_path(@forum, post), class: "btn btn-secondary btn-sm" %>
+             <div class="btn-group">
+              <%= link_to "Edit", edit_forum_post_path(@forum, post), class: "btn btn-secondary btn-sm d-inline-block" %>
               <%= button_to "Delete", forum_post_path(@forum, post), 
                           method: :delete, 
                           data: { confirm: "Are you sure you want to delete this post?" }, 
-                          class: "btn btn-danger btn-sm" %>
+                          class: "btn btn-danger btn-sm d-inline-block" %>
+            </div>
             <% end %>
           </td>
-        </tr>
       <% end %>
-    </tbody>
-  </table>
 <% else %>
   <p>No posts yet. Be the first to post!</p>
 <% end %>
 
+<div>
 <%= link_to "New Post", new_forum_post_path(forum_id: @forum.id), class: "btn btn-primary" %>
 <%= link_to "Back to Forums", forums_path, class: "btn btn-outline-secondary" %>
+</div>

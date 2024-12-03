@@ -14,3 +14,8 @@
  *= require_self
  *= require actiontext
  */
+
+ trix-editor span[style*="font-family"] {
+    font-family: inherit;
+  }
+  
