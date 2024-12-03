@@ -12195,3 +12195,1834 @@ Processing by ForumsController#index as HTML
 Completed 200 OK in 45ms (Views: 17.6ms | ActiveRecord: 1.7ms | Allocations: 2961)
 
 
+Started GET "/forums" for 172.17.0.1 at 2024-12-03 04:19:01 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ForumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (3.9ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/index.html.erb:29
+  Rendered forums/index.html.erb within layouts/application (Duration: 146.7ms | Allocations: 21118)
+  Rendered layout layouts/application.html.erb (Duration: 157.7ms | Allocations: 22317)
+Completed 200 OK in 358ms (Views: 122.8ms | ActiveRecord: 60.3ms | Allocations: 30159)
+
+
+Started GET "/citizens" for 172.17.0.1 at 2024-12-03 04:19:07 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#index as HTML
+Started GET "/forums/new" for 172.17.0.1 at 2024-12-03 04:19:07 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (0.5ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/citizens/index.html.erb:3
+  [1m[36mCitizen Load (0.9ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:22
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+Processing by ForumsController#new as HTML
+Started GET "/citizens/7" for 172.17.0.1 at 2024-12-03 04:19:07 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mCitizen Load (7.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering forums/new.html.erb within layouts/application
+  Rendered forums/_form.html.erb (Duration: 29.7ms | Allocations: 1808)
+  Rendered forums/new.html.erb within layouts/application (Duration: 43.3ms | Allocations: 2193)
+  Rendered layout layouts/application.html.erb (Duration: 47.7ms | Allocations: 2719)
+Completed 200 OK in 113ms (Views: 52.5ms | ActiveRecord: 11.1ms | Allocations: 7700)
+
+
+Processing by CitizensController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:71:in `set_citizen'
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (3.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 2986.2ms | Allocations: 67948)
+  [1m[36mActiveStorage::Attachment Load (1.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 6.3ms | Allocations: 917)
+  Rendered citizens/index.html.erb within layouts/application (Duration: 3025.1ms | Allocations: 71342)
+  Rendered layout layouts/application.html.erb (Duration: 3028.6ms | Allocations: 71826)
+Completed 200 OK in 3115ms (Views: 3029.2ms | ActiveRecord: 5.6ms | Allocations: 73606)
+
+
+  Rendered citizens/_citizen.html.erb (Duration: 2375.8ms | Allocations: 37631)
+  [1m[36mForum Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "forums" WHERE "forums"."citizen_id" = ? LIMIT ?[0m  [["citizen_id", 7], ["LIMIT", 1]]
+  ↳ app/views/citizens/show.html.erb:6
+  [1m[36mForum Load (1.4ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."citizen_id" = ?[0m  [["citizen_id", 7]]
+  ↳ app/views/citizens/show.html.erb:16
+  [1m[36mCitizen Load (1.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/citizens/show.html.erb:21
+  Rendered citizens/show.html.erb within layouts/application (Duration: 2475.4ms | Allocations: 42399)
+  Rendered layout layouts/application.html.erb (Duration: 2482.3ms | Allocations: 42881)
+Completed 200 OK in 2593ms (Views: 2478.9ms | ActiveRecord: 7.7ms | Allocations: 44354)
+
+
+Started GET "/forums" for 172.17.0.1 at 2024-12-03 04:19:17 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (1.0ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/index.html.erb:29
+  Rendered forums/index.html.erb within layouts/application (Duration: 19.5ms | Allocations: 2215)
+  Rendered layout layouts/application.html.erb (Duration: 23.0ms | Allocations: 2719)
+Completed 200 OK in 53ms (Views: 21.7ms | ActiveRecord: 3.5ms | Allocations: 3014)
+
+
+Started GET "/citizens/7/edit" for 172.17.0.1 at 2024-12-03 04:19:17 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCitizen Load (1.2ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:71:in `set_citizen'
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/edit.html.erb within layouts/application
+  Rendered citizens/_form.html.erb (Duration: 18.7ms | Allocations: 1388)
+  Rendered citizens/edit.html.erb within layouts/application (Duration: 59.9ms | Allocations: 1711)
+  Rendered layout layouts/application.html.erb (Duration: 63.1ms | Allocations: 2222)
+Completed 200 OK in 122ms (Views: 66.2ms | ActiveRecord: 1.9ms | Allocations: 4209)
+
+
+Started GET "/citizens" for 172.17.0.1 at 2024-12-03 04:19:20 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/citizens/index.html.erb:3
+  [1m[36mCitizen Load (1.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:22
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 40.6ms | Allocations: 1231)
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 4.2ms | Allocations: 915)
+  Rendered citizens/index.html.erb within layouts/application (Duration: 60.8ms | Allocations: 3800)
+  Rendered layout layouts/application.html.erb (Duration: 65.2ms | Allocations: 4282)
+Completed 200 OK in 101ms (Views: 63.7ms | ActiveRecord: 4.2ms | Allocations: 4560)
+
+
+Started DELETE "/citizens/sign_out" for 172.17.0.1 at 2024-12-03 04:19:23 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mCitizen Load (0.9ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 44ms (ActiveRecord: 0.9ms | Allocations: 3037)
+
+
+Started GET "/" for 172.17.0.1 at 2024-12-03 04:19:23 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (0.7ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.9ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  Rendered forums/index.html.erb within layouts/application (Duration: 14.7ms | Allocations: 1710)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 2224)
+Completed 200 OK in 48ms (Views: 16.8ms | ActiveRecord: 2.4ms | Allocations: 2556)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 04:19:29 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (0.5ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.0ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.2ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 16], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.0ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 20], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.9ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 259.1ms | Allocations: 35219)
+  Rendered layout layouts/application.html.erb (Duration: 263.7ms | Allocations: 35724)
+Completed 200 OK in 309ms (Views: 252.5ms | ActiveRecord: 15.4ms | Allocations: 37034)
+
+
+Started GET "/citizens" for 172.17.0.1 at 2024-12-03 04:21:30 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:22
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 37.3ms | Allocations: 1236)
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 4.1ms | Allocations: 915)
+  Rendered citizens/index.html.erb within layouts/application (Duration: 50.4ms | Allocations: 3181)
+  Rendered layout layouts/application.html.erb (Duration: 52.9ms | Allocations: 3664)
+Completed 200 OK in 79ms (Views: 54.0ms | ActiveRecord: 2.0ms | Allocations: 3945)
+
+
+Started GET "/citizens/sign_in" for 172.17.0.1 at 2024-12-03 04:21:34 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 6.0ms | Allocations: 578)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 58.0ms | Allocations: 4595)
+  Rendered layout layouts/application.html.erb (Duration: 60.6ms | Allocations: 5182)
+Completed 200 OK in 100ms (Views: 76.3ms | ActiveRecord: 0.0ms | Allocations: 6358)
+
+
+Started GET "/citizens/password/new" for 172.17.0.1 at 2024-12-03 04:21:48 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 5.4ms | Allocations: 222)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 125)
+  Rendered devise/passwords/new.html.erb within layouts/application (Duration: 26.4ms | Allocations: 1173)
+  Rendered layout layouts/application.html.erb (Duration: 29.2ms | Allocations: 1687)
+Completed 200 OK in 65ms (Views: 34.0ms | ActiveRecord: 0.0ms | Allocations: 2578)
+
+
+Started POST "/citizens/sign_in" for 172.17.0.1 at 2024-12-03 04:21:55 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "citizen"=>{"email"=>"fork@spoon.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."email" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["email", "fork@spoon.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 352ms (ActiveRecord: 0.8ms | Allocations: 3753)
+
+
+Started GET "/" for 172.17.0.1 at 2024-12-03 04:21:56 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (0.7ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.3ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/index.html.erb:29
+  Rendered forums/index.html.erb within layouts/application (Duration: 13.9ms | Allocations: 2167)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 2674)
+Completed 200 OK in 42ms (Views: 17.7ms | ActiveRecord: 2.8ms | Allocations: 2965)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 04:24:02 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (0.8ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.0ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 16], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 20], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 309.9ms | Allocations: 47903)
+  Rendered layout layouts/application.html.erb (Duration: 319.6ms | Allocations: 49058)
+Completed 200 OK in 579ms (Views: 330.8ms | ActiveRecord: 70.2ms | Allocations: 65170)
+
+
+Started GET "/forums" for 172.17.0.1 at 2024-12-03 04:24:06 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (0.7ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/index.html.erb:29
+  Rendered forums/index.html.erb within layouts/application (Duration: 42.2ms | Allocations: 3867)
+  Rendered layout layouts/application.html.erb (Duration: 45.2ms | Allocations: 4371)
+Completed 200 OK in 79ms (Views: 45.2ms | ActiveRecord: 2.2ms | Allocations: 4818)
+
+
+Started GET "/forums/new" for 172.17.0.1 at 2024-12-03 04:24:08 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/citizens/7" for 172.17.0.1 at 2024-12-03 04:24:08 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#new as HTML
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering forums/new.html.erb within layouts/application
+  Rendered forums/_form.html.erb (Duration: 31.7ms | Allocations: 1747)
+  Rendered forums/new.html.erb within layouts/application (Duration: 48.7ms | Allocations: 2084)
+  Rendered layout layouts/application.html.erb (Duration: 52.2ms | Allocations: 2601)
+Completed 200 OK in 93ms (Views: 54.7ms | ActiveRecord: 0.7ms | Allocations: 4288)
+
+
+Processing by CitizensController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:71:in `set_citizen'
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+Started GET "/forums/new" for 172.17.0.1 at 2024-12-03 04:24:09 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#new as HTML
+  [1m[36mCitizen Load (7.4ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering forums/new.html.erb within layouts/application
+  Rendered forums/_form.html.erb (Duration: 1.4ms | Allocations: 552)
+  Rendered forums/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 709)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 1225)
+Completed 200 OK in 47ms (Views: 9.2ms | ActiveRecord: 10.8ms | Allocations: 3506)
+
+
+  Rendered citizens/_citizen.html.erb (Duration: 605.6ms | Allocations: 29743)
+  [1m[36mForum Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "forums" WHERE "forums"."citizen_id" = ? LIMIT ?[0m  [["citizen_id", 7], ["LIMIT", 1]]
+  ↳ app/views/citizens/show.html.erb:6
+  [1m[36mForum Load (0.9ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."citizen_id" = ?[0m  [["citizen_id", 7]]
+  ↳ app/views/citizens/show.html.erb:16
+  [1m[36mCitizen Load (0.9ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/citizens/show.html.erb:21
+  Rendered citizens/show.html.erb within layouts/application (Duration: 641.8ms | Allocations: 34094)
+  Rendered layout layouts/application.html.erb (Duration: 645.4ms | Allocations: 34579)
+Completed 200 OK in 690ms (Views: 645.9ms | ActiveRecord: 5.7ms | Allocations: 36155)
+
+
+Started GET "/citizens/7" for 172.17.0.1 at 2024-12-03 04:24:11 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:71:in `set_citizen'
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 34.2ms | Allocations: 1239)
+  [1m[36mForum Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "forums" WHERE "forums"."citizen_id" = ? LIMIT ?[0m  [["citizen_id", 7], ["LIMIT", 1]]
+  ↳ app/views/citizens/show.html.erb:6
+  [1m[36mForum Load (0.9ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."citizen_id" = ?[0m  [["citizen_id", 7]]
+  ↳ app/views/citizens/show.html.erb:16
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/citizens/show.html.erb:21
+  Rendered citizens/show.html.erb within layouts/application (Duration: 52.1ms | Allocations: 3436)
+  Rendered layout layouts/application.html.erb (Duration: 54.2ms | Allocations: 3918)
+Completed 200 OK in 86ms (Views: 52.3ms | ActiveRecord: 4.7ms | Allocations: 4530)
+
+
+Started GET "/citizens/7/edit" for 172.17.0.1 at 2024-12-03 04:24:15 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCitizen Load (1.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/citizens_controller.rb:71:in `set_citizen'
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/edit.html.erb within layouts/application
+  Rendered citizens/_form.html.erb (Duration: 14.0ms | Allocations: 1387)
+  Rendered citizens/edit.html.erb within layouts/application (Duration: 28.0ms | Allocations: 1711)
+  Rendered layout layouts/application.html.erb (Duration: 31.3ms | Allocations: 2222)
+Completed 200 OK in 71ms (Views: 32.9ms | ActiveRecord: 1.8ms | Allocations: 4194)
+
+
+Started GET "/citizens" for 172.17.0.1 at 2024-12-03 04:24:17 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (0.5ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/citizens/index.html.erb:3
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:22
+  [1m[36mActiveStorage::Attachment Load (1.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 32.4ms | Allocations: 1233)
+  [1m[36mActiveStorage::Attachment Load (1.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 6.0ms | Allocations: 916)
+  Rendered citizens/index.html.erb within layouts/application (Duration: 54.3ms | Allocations: 4239)
+  Rendered layout layouts/application.html.erb (Duration: 57.9ms | Allocations: 4721)
+Completed 200 OK in 89ms (Views: 56.2ms | ActiveRecord: 3.7ms | Allocations: 5088)
+
+
+Started DELETE "/citizens/sign_out" for 172.17.0.1 at 2024-12-03 04:24:20 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 39ms (ActiveRecord: 0.7ms | Allocations: 3029)
+
+
+Started GET "/" for 172.17.0.1 at 2024-12-03 04:24:20 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (0.6ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  Rendered forums/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 1716)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 2231)
+Completed 200 OK in 39ms (Views: 13.9ms | ActiveRecord: 1.4ms | Allocations: 2566)
+
+
+Started GET "/citizens/sign_in" for 172.17.0.1 at 2024-12-03 04:24:23 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/citizens" for 172.17.0.1 at 2024-12-03 04:24:23 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 8.1ms | Allocations: 600)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 48.4ms | Allocations: 2589)
+  Rendered layout layouts/application.html.erb (Duration: 51.1ms | Allocations: 3176)
+Completed 200 OK in 89ms (Views: 67.8ms | ActiveRecord: 0.0ms | Allocations: 4396)
+
+
+Processing by CitizensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (1.2ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:22
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 32.1ms | Allocations: 1229)
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 4.8ms | Allocations: 915)
+  Rendered citizens/index.html.erb within layouts/application (Duration: 45.5ms | Allocations: 3150)
+  Rendered layout layouts/application.html.erb (Duration: 48.5ms | Allocations: 3633)
+Completed 200 OK in 74ms (Views: 47.6ms | ActiveRecord: 2.6ms | Allocations: 3914)
+
+
+Started GET "/citizens" for 172.17.0.1 at 2024-12-03 04:24:24 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by CitizensController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering citizens/index.html.erb within layouts/application
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens"[0m
+  ↳ app/views/citizens/index.html.erb:22
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 30.2ms | Allocations: 1228)
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Citizen"], ["name", "profile_picture"], ["LIMIT", 1]]
+  ↳ app/views/citizens/_citizen.html.erb:2
+  Rendered citizens/_citizen.html.erb (Duration: 4.7ms | Allocations: 915)
+  Rendered citizens/index.html.erb within layouts/application (Duration: 41.6ms | Allocations: 3146)
+  Rendered layout layouts/application.html.erb (Duration: 44.3ms | Allocations: 3629)
+Completed 200 OK in 68ms (Views: 44.1ms | ActiveRecord: 2.2ms | Allocations: 3907)
+
+
+Started GET "/citizens/sign_up" for 172.17.0.1 at 2024-12-03 04:24:26 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 6.9ms | Allocations: 222)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 83)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 26.5ms | Allocations: 2257)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 2771)
+Completed 200 OK in 104ms (Views: 81.1ms | ActiveRecord: 0.0ms | Allocations: 3701)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 04:24:27 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (0.8ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.9ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 16], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 20], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.0ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 90.7ms | Allocations: 11367)
+  Rendered layout layouts/application.html.erb (Duration: 94.9ms | Allocations: 11871)
+Completed 200 OK in 124ms (Views: 89.5ms | ActiveRecord: 9.5ms | Allocations: 12478)
+
+
+Started GET "/forums" for 172.17.0.1 at 2024-12-03 04:36:09 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ForumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (5.0ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  Rendered forums/index.html.erb within layouts/application (Duration: 149.0ms | Allocations: 19016)
+  Rendered layout layouts/application.html.erb (Duration: 159.7ms | Allocations: 20215)
+Completed 200 OK in 360ms (Views: 122.6ms | ActiveRecord: 64.0ms | Allocations: 28053)
+
+
+Started GET "/citizens/sign_in" for 172.17.0.1 at 2024-12-03 04:36:12 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 5.9ms | Allocations: 576)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 54.7ms | Allocations: 3159)
+  Rendered layout layouts/application.html.erb (Duration: 57.3ms | Allocations: 3746)
+Completed 200 OK in 93ms (Views: 71.4ms | ActiveRecord: 0.0ms | Allocations: 5281)
+
+
+Started GET "/rails/info/routes" for 172.17.0.1 at 2024-12-03 04:36:21 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /usr/local/bundle/gems/railties-7.1.5/lib/rails/templates/layouts/application.html.erb
+  Rendering /usr/local/bundle/gems/railties-7.1.5/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /usr/local/bundle/gems/actionpack-7.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb [65 times] (Duration: 15.5ms | Allocations: 16339)
+  Rendered /usr/local/bundle/gems/actionpack-7.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 6.0ms | Allocations: 805)
+  Rendered /usr/local/bundle/gems/railties-7.1.5/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 38.8ms | Allocations: 23199)
+  Rendered layout /usr/local/bundle/gems/railties-7.1.5/lib/rails/templates/layouts/application.html.erb (Duration: 43.2ms | Allocations: 23476)
+Completed 200 OK in 71ms (Views: 46.1ms | ActiveRecord: 0.0ms | Allocations: 24392)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 04:43:47 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (1.2ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (0.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 16], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 20], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.0ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 316.1ms | Allocations: 45984)
+  Rendered layout layouts/application.html.erb (Duration: 326.7ms | Allocations: 47194)
+Completed 200 OK in 586ms (Views: 335.3ms | ActiveRecord: 70.8ms | Allocations: 63293)
+
+
+Started GET "/forums" for 172.17.0.1 at 2024-12-03 04:43:58 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (1.3ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (0.9ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  Rendered forums/index.html.erb within layouts/application (Duration: 39.1ms | Allocations: 3401)
+  Rendered layout layouts/application.html.erb (Duration: 41.4ms | Allocations: 3905)
+Completed 200 OK in 76ms (Views: 41.7ms | ActiveRecord: 2.2ms | Allocations: 4358)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 04:49:00 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (0.6ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.0ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 16], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 20], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.9ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.0ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 80.5ms | Allocations: 11386)
+  Rendered layout layouts/application.html.erb (Duration: 83.2ms | Allocations: 11890)
+Completed 200 OK in 114ms (Views: 77.6ms | ActiveRecord: 9.4ms | Allocations: 12510)
+
+
+Started GET "/forums/8" for 172.17.0.1 at 2024-12-03 04:49:01 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mForum Load (0.6ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 8], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  Rendered forums/show.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1348)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 1852)
+Completed 200 OK in 39ms (Views: 12.3ms | ActiveRecord: 2.0ms | Allocations: 2471)
+
+
+Started GET "/forums/8/posts/new" for 172.17.0.1 at 2024-12-03 04:49:02 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  Parameters: {"forum_id"=>"8"}
+Completed 401 Unauthorized in 23ms (ActiveRecord: 0.0ms | Allocations: 447)
+
+
+Started GET "/citizens/sign_in" for 172.17.0.1 at 2024-12-03 04:49:02 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 6.3ms | Allocations: 580)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 54.2ms | Allocations: 2704)
+  Rendered layout layouts/application.html.erb (Duration: 58.2ms | Allocations: 3294)
+Completed 200 OK in 100ms (Views: 73.2ms | ActiveRecord: 0.0ms | Allocations: 4858)
+
+
+Started GET "/forums" for 172.17.0.1 at 2024-12-03 04:49:03 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (0.7ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  Rendered forums/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 1605)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 2109)
+Completed 200 OK in 38ms (Views: 13.1ms | ActiveRecord: 1.7ms | Allocations: 2399)
+
+
+Started GET "/forums/8/posts/new" for 172.17.0.1 at 2024-12-03 04:49:03 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  Parameters: {"forum_id"=>"8"}
+Completed 401 Unauthorized in 23ms (ActiveRecord: 0.0ms | Allocations: 321)
+
+
+Started GET "/citizens/sign_in" for 172.17.0.1 at 2024-12-03 04:49:03 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 115)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 874)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 1386)
+Completed 200 OK in 39ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 2031)
+
+
+Started GET "/forums" for 172.17.0.1 at 2024-12-03 04:49:04 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (0.6ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.2ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  Rendered forums/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 1624)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 2128)
+Completed 200 OK in 36ms (Views: 12.1ms | ActiveRecord: 1.8ms | Allocations: 2416)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 04:49:05 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (0.6ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.0ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 16], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 20], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.9ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 74.5ms | Allocations: 11372)
+  Rendered layout layouts/application.html.erb (Duration: 78.5ms | Allocations: 11876)
+Completed 200 OK in 107ms (Views: 71.5ms | ActiveRecord: 10.0ms | Allocations: 12485)
+
+
+Started GET "/forums" for 172.17.0.1 at 2024-12-03 04:49:10 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (0.8ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (3.9ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  Rendered forums/index.html.erb within layouts/application (Duration: 15.5ms | Allocations: 1640)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 2144)
+Completed 200 OK in 47ms (Views: 16.0ms | ActiveRecord: 4.6ms | Allocations: 2436)
+
+
+Started GET "/citizens/sign_in" for 172.17.0.1 at 2024-12-03 04:49:11 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 115)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 874)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 1385)
+Completed 200 OK in 29ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 2013)
+
+
+Started POST "/citizens/sign_in" for 172.17.0.1 at 2024-12-03 04:49:16 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "citizen"=>{"email"=>"fork@spoon.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."email" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["email", "fork@spoon.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/forums/8/posts/new
+Completed 303 See Other in 337ms (ActiveRecord: 0.7ms | Allocations: 4102)
+
+
+Started GET "/forums/8/posts/new" for 172.17.0.1 at 2024-12-03 04:49:16 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as TURBO_STREAM
+  Parameters: {"forum_id"=>"8"}
+  [1m[36mCitizen Load (1.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (0.8ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:70:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 7.2ms | Allocations: 1506)
+  Rendered posts/new.html.erb within layouts/application (Duration: 24.4ms | Allocations: 1800)
+  Rendered layout layouts/application.html.erb (Duration: 28.5ms | Allocations: 2314)
+Completed 200 OK in 76ms (Views: 34.2ms | ActiveRecord: 1.8ms | Allocations: 4508)
+
+
+Started GET "/citizens/sign_in" for 172.17.0.1 at 2024-12-03 04:49:20 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms | Allocations: 1499)
+
+
+Started GET "/" for 172.17.0.1 at 2024-12-03 04:49:20 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (0.7ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/index.html.erb:29
+  Rendered forums/index.html.erb within layouts/application (Duration: 17.8ms | Allocations: 2194)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 2699)
+Completed 200 OK in 52ms (Views: 20.1ms | ActiveRecord: 2.6ms | Allocations: 2985)
+
+
+Started GET "/" for 172.17.0.1 at 2024-12-03 04:49:22 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (0.6ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.2ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/index.html.erb:29
+  Rendered forums/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 2172)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 2676)
+Completed 200 OK in 40ms (Views: 14.8ms | ActiveRecord: 2.6ms | Allocations: 2962)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 04:49:23 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (0.6ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mCitizen Load (1.3ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.0ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 16], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 20], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 84.5ms | Allocations: 12999)
+  Rendered layout layouts/application.html.erb (Duration: 87.1ms | Allocations: 13502)
+Completed 200 OK in 116ms (Views: 79.5ms | ActiveRecord: 10.2ms | Allocations: 14111)
+
+
+Started DELETE "/forums/12/posts/16" for 172.17.0.1 at 2024-12-03 04:49:25 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "forum_id"=>"12", "id"=>"16"}
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:66:in `set_post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+  [1m[36mActionText::RichText Load (4.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 16], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 16], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+  [1m[36mActionText::RichText Destroy (0.9ms)[0m  [1m[31mDELETE FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."id" = ?[0m  [["id", 16]]
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+  [1m[36mPost Destroy (0.1ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 16]]
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+  [1m[36mTRANSACTION (9.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+Redirected to http://localhost:3000/forums
+Completed 303 See Other in 76ms (ActiveRecord: 17.2ms | Allocations: 9870)
+
+
+Started GET "/forums" for 172.17.0.1 at 2024-12-03 04:49:25 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (2.4ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/index.html.erb:29
+  Rendered forums/index.html.erb within layouts/application (Duration: 18.5ms | Allocations: 2160)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 2664)
+Completed 200 OK in 51ms (Views: 20.4ms | ActiveRecord: 3.9ms | Allocations: 2955)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 04:49:27 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (0.4ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mCitizen Load (0.5ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (0.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 20], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 73.7ms | Allocations: 11481)
+  Rendered layout layouts/application.html.erb (Duration: 78.6ms | Allocations: 11984)
+Completed 200 OK in 108ms (Views: 75.4ms | ActiveRecord: 6.9ms | Allocations: 12591)
+
+
+Started DELETE "/forums/12/posts/20" for 172.17.0.1 at 2024-12-03 04:49:30 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "forum_id"=>"12", "id"=>"20"}
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:66:in `set_post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+  [1m[36mActionText::RichText Load (5.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 20], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 20], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+  [1m[36mActionText::RichText Destroy (0.4ms)[0m  [1m[31mDELETE FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."id" = ?[0m  [["id", 20]]
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+  [1m[36mPost Destroy (0.2ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 20]]
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+Redirected to http://localhost:3000/forums
+Completed 303 See Other in 55ms (ActiveRecord: 10.2ms | Allocations: 5446)
+
+
+Started GET "/forums" for 172.17.0.1 at 2024-12-03 04:49:31 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (1.5ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/index.html.erb:29
+  Rendered forums/index.html.erb within layouts/application (Duration: 13.2ms | Allocations: 2151)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 2655)
+Completed 200 OK in 40ms (Views: 14.7ms | ActiveRecord: 2.6ms | Allocations: 2945)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 04:49:32 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (0.4ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mCitizen Load (0.5ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (1.0ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 64.4ms | Allocations: 9945)
+  Rendered layout layouts/application.html.erb (Duration: 67.3ms | Allocations: 10448)
+Completed 200 OK in 95ms (Views: 63.5ms | ActiveRecord: 6.6ms | Allocations: 11056)
+
+
+Started DELETE "/forums/12/posts/8" for 172.17.0.1 at 2024-12-03 04:49:35 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "forum_id"=>"12", "id"=>"8"}
+  [1m[36mCitizen Load (0.4ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:66:in `set_post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+  [1m[36mActionText::RichText Load (2.9ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 8], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+  [1m[36mActionText::RichText Destroy (0.7ms)[0m  [1m[31mDELETE FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."id" = ?[0m  [["id", 8]]
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+  [1m[36mPost Destroy (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 8]]
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:55:in `destroy'
+Redirected to http://localhost:3000/forums
+Completed 303 See Other in 53ms (ActiveRecord: 6.9ms | Allocations: 5435)
+
+
+Started GET "/forums" for 172.17.0.1 at 2024-12-03 04:49:35 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (1.4ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/index.html.erb:29
+  Rendered forums/index.html.erb within layouts/application (Duration: 14.5ms | Allocations: 2169)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 2673)
+Completed 200 OK in 45ms (Views: 17.8ms | ActiveRecord: 2.5ms | Allocations: 2962)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 04:49:36 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (0.4ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 51.2ms | Allocations: 8416)
+  Rendered layout layouts/application.html.erb (Duration: 57.0ms | Allocations: 8919)
+Completed 200 OK in 88ms (Views: 56.0ms | ActiveRecord: 5.1ms | Allocations: 9526)
+
+
+Started GET "/forums/" for 172.17.0.1 at 2024-12-03 04:49:43 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (0.5ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (0.5ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/index.html.erb:29
+  Rendered forums/index.html.erb within layouts/application (Duration: 10.9ms | Allocations: 2152)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 2656)
+Completed 200 OK in 41ms (Views: 15.9ms | ActiveRecord: 1.5ms | Allocations: 2944)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 04:55:30 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (34.9ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (1.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 69.5ms | Allocations: 8593)
+  Rendered layout layouts/application.html.erb (Duration: 72.5ms | Allocations: 9096)
+Completed 200 OK in 141ms (Views: 66.7ms | ActiveRecord: 67.0ms | Allocations: 9963)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 04:57:34 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (0.6ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (3.3ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (0.9ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 87.4ms | Allocations: 8440)
+  Rendered layout layouts/application.html.erb (Duration: 92.0ms | Allocations: 8943)
+Completed 200 OK in 127ms (Views: 84.2ms | ActiveRecord: 11.8ms | Allocations: 9550)
+
+
+Started GET "/forums/12/posts/new" for 172.17.0.1 at 2024-12-03 04:57:43 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  Parameters: {"forum_id"=>"12"}
+  [1m[36mCitizen Load (1.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (1.0ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:70:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 10.4ms | Allocations: 808)
+  Rendered posts/new.html.erb within layouts/application (Duration: 11.8ms | Allocations: 871)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 1382)
+Completed 200 OK in 59ms (Views: 18.7ms | ActiveRecord: 2.6ms | Allocations: 3277)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 04:58:58 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (0.6ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mCitizen Load (1.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 72.0ms | Allocations: 8440)
+  Rendered layout layouts/application.html.erb (Duration: 78.6ms | Allocations: 8943)
+Completed 200 OK in 113ms (Views: 73.1ms | ActiveRecord: 8.7ms | Allocations: 9550)
+
+
+Started GET "/forums/12/posts/new" for 172.17.0.1 at 2024-12-03 04:59:08 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  Parameters: {"forum_id"=>"12"}
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (1.0ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:70:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 6.0ms | Allocations: 807)
+  Rendered posts/new.html.erb within layouts/application (Duration: 8.0ms | Allocations: 870)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 1381)
+Completed 200 OK in 73ms (Views: 23.2ms | ActiveRecord: 1.9ms | Allocations: 3289)
+
+
+Started GET "/forums/12/posts/new" for 172.17.0.1 at 2024-12-03 04:59:08 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  Parameters: {"forum_id"=>"12"}
+  [1m[36mCitizen Load (3.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (1.5ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:70:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 5.3ms | Allocations: 807)
+  Rendered posts/new.html.erb within layouts/application (Duration: 9.9ms | Allocations: 870)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | Allocations: 1381)
+Completed 200 OK in 122ms (Views: 27.6ms | ActiveRecord: 5.2ms | Allocations: 3290)
+
+
+Started POST "/forums/12/posts" for 172.17.0.1 at 2024-12-03 04:59:34 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"text"=>"<div><span style=\"color: rgb(0, 255, 136); font-family: &quot;Comic Sans MS&quot;; font-size: 84px;\"><span>Hello World</span></span></div>"}, "commit"=>"Create Post", "forum_id"=>"12"}
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (0.9ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:70:in `set_forum'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:30:in `block in create'
+  [1m[36mPost Create (4.4ms)[0m  [1m[32mINSERT INTO "posts" ("created_at", "updated_at", "forum_id", "citizen_id") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2024-12-03 04:59:35.329722"], ["updated_at", "2024-12-03 04:59:35.329722"], ["forum_id", 12], ["citizen_id", 7]]
+  ↳ app/controllers/posts_controller.rb:30:in `block in create'
+  [1m[36mActionText::RichText Create (0.2ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "text"], ["body", "<div><span style=\"color: rgb(0, 255, 136); font-family: &quot;Comic Sans MS&quot;; font-size: 84px;\"><span>Hello World</span></span></div>"], ["record_type", "Post"], ["record_id", 24], ["created_at", "2024-12-03 04:59:35.373576"], ["updated_at", "2024-12-03 04:59:35.373576"]]
+  ↳ app/controllers/posts_controller.rb:30:in `block in create'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 24], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:30:in `block in create'
+  [1m[36mPost Update (0.2ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-12-03 04:59:35.381133"], ["id", 24]]
+  ↳ app/controllers/posts_controller.rb:30:in `block in create'
+  [1m[36mTRANSACTION (30.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/forums/12
+Completed 302 Found in 157ms (ActiveRecord: 37.2ms | Allocations: 10325)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 04:59:35 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as TURBO_STREAM
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (9.5ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (1.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mCitizen Load (1.3ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (4.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.9ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (2.9ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (2.0ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 24], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 180.6ms | Allocations: 9963)
+  Rendered layout layouts/application.html.erb (Duration: 193.5ms | Allocations: 10466)
+Completed 200 OK in 271ms (Views: 183.1ms | ActiveRecord: 24.9ms | Allocations: 11076)
+
+
+Started GET "/forums" for 172.17.0.1 at 2024-12-03 04:59:41 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (0.9ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/index.html.erb:29
+  Rendered forums/index.html.erb within layouts/application (Duration: 21.6ms | Allocations: 2203)
+  Rendered layout layouts/application.html.erb (Duration: 26.1ms | Allocations: 2707)
+Completed 200 OK in 73ms (Views: 26.6ms | ActiveRecord: 2.9ms | Allocations: 2994)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 05:00:39 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (0.4ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (0.5ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mCitizen Load (0.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 24], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 62.4ms | Allocations: 9940)
+  Rendered layout layouts/application.html.erb (Duration: 65.4ms | Allocations: 10443)
+Completed 200 OK in 93ms (Views: 62.0ms | ActiveRecord: 5.8ms | Allocations: 11050)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 05:01:18 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (0.6ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (0.9ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mCitizen Load (2.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (4.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (1.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.0ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.9ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 24], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 189.4ms | Allocations: 9933)
+  Rendered layout layouts/application.html.erb (Duration: 207.7ms | Allocations: 10436)
+Completed 200 OK in 265ms (Views: 197.5ms | ActiveRecord: 15.5ms | Allocations: 11043)
+
+
+Started GET "/forums/12/posts/new" for 172.17.0.1 at 2024-12-03 05:01:52 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  Parameters: {"forum_id"=>"12"}
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (0.9ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:70:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 6.5ms | Allocations: 807)
+  Rendered posts/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 870)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | Allocations: 1381)
+Completed 200 OK in 114ms (Views: 30.1ms | ActiveRecord: 1.4ms | Allocations: 3304)
+
+
+Started GET "/forums" for 172.17.0.1 at 2024-12-03 05:07:52 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (58.6ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/index.html.erb:29
+  Rendered forums/index.html.erb within layouts/application (Duration: 85.0ms | Allocations: 2452)
+  Rendered layout layouts/application.html.erb (Duration: 89.7ms | Allocations: 2956)
+Completed 200 OK in 136ms (Views: -9.5ms | ActiveRecord: 103.2ms | Allocations: 3242)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 05:08:25 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (2.0ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (1.2ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mCitizen Load (3.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (4.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (2.0ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 24], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 149.2ms | Allocations: 10080)
+  Rendered layout layouts/application.html.erb (Duration: 154.9ms | Allocations: 10583)
+Completed 200 OK in 216ms (Views: 142.5ms | ActiveRecord: 19.5ms | Allocations: 11212)
+
+
+Started GET "/forums/12/posts/new" for 172.17.0.1 at 2024-12-03 05:08:35 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  Parameters: {"forum_id"=>"12"}
+  [1m[36mCitizen Load (1.3ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (2.3ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:70:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 5.9ms | Allocations: 807)
+  Rendered posts/new.html.erb within layouts/application (Duration: 8.0ms | Allocations: 870)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 1381)
+Completed 200 OK in 83ms (Views: 19.8ms | ActiveRecord: 3.5ms | Allocations: 3288)
+
+
+Started GET "/forums/12/posts/new" for 172.17.0.1 at 2024-12-03 05:09:05 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  Parameters: {"forum_id"=>"12"}
+  [1m[36mCitizen Load (1.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (1.4ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:70:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 8.2ms | Allocations: 807)
+  Rendered posts/new.html.erb within layouts/application (Duration: 11.6ms | Allocations: 870)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 1381)
+Completed 200 OK in 85ms (Views: 20.5ms | ActiveRecord: 3.2ms | Allocations: 3277)
+
+
+Started GET "/forums/" for 172.17.0.1 at 2024-12-03 05:09:17 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering forums/index.html.erb within layouts/application
+  [1m[36mForum Load (1.3ms)[0m  [1m[34mSELECT "forums".* FROM "forums"[0m
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (2.7ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" IN (?, ?)[0m  [["id", 8], ["id", 7]]
+  ↳ app/views/forums/index.html.erb:21
+  [1m[36mCitizen Load (1.2ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/index.html.erb:29
+  Rendered forums/index.html.erb within layouts/application (Duration: 25.8ms | Allocations: 2157)
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | Allocations: 2661)
+Completed 200 OK in 72ms (Views: 28.8ms | ActiveRecord: 5.1ms | Allocations: 2949)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 05:09:34 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (0.7ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (0.8ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mCitizen Load (0.9ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (2.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.0ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 24], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 74.8ms | Allocations: 9954)
+  Rendered layout layouts/application.html.erb (Duration: 78.4ms | Allocations: 10457)
+Completed 200 OK in 112ms (Views: 71.6ms | ActiveRecord: 11.4ms | Allocations: 11065)
+
+
+Started GET "/forums/12/posts/new" for 172.17.0.1 at 2024-12-03 05:09:44 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  Parameters: {"forum_id"=>"12"}
+  [1m[36mCitizen Load (1.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (1.7ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:70:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 5.6ms | Allocations: 807)
+  Rendered posts/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 870)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 1381)
+Completed 200 OK in 70ms (Views: 18.5ms | ActiveRecord: 2.7ms | Allocations: 3288)
+
+
+Started POST "/forums/12/posts" for 172.17.0.1 at 2024-12-03 05:10:12 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"text"=>"<div><span style=\"color: rgb(224, 6, 6); font-family: &quot;Comic Sans MS&quot;; font-size: 76px;\"><span>I love CHEESE</span></span></div>"}, "commit"=>"Create Post", "forum_id"=>"12"}
+  [1m[36mCitizen Load (0.6ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (1.1ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:70:in `set_forum'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:30:in `block in create'
+  [1m[36mPost Create (6.0ms)[0m  [1m[32mINSERT INTO "posts" ("created_at", "updated_at", "forum_id", "citizen_id") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2024-12-03 05:10:12.665577"], ["updated_at", "2024-12-03 05:10:12.665577"], ["forum_id", 12], ["citizen_id", 7]]
+  ↳ app/controllers/posts_controller.rb:30:in `block in create'
+  [1m[36mActionText::RichText Create (0.3ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "text"], ["body", "<div><span style=\"color: rgb(224, 6, 6); font-family: &quot;Comic Sans MS&quot;; font-size: 76px;\"><span>I love CHEESE</span></span></div>"], ["record_type", "Post"], ["record_id", 25], ["created_at", "2024-12-03 05:10:12.680870"], ["updated_at", "2024-12-03 05:10:12.680870"]]
+  ↳ app/controllers/posts_controller.rb:30:in `block in create'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 25], ["record_type", "ActionText::RichText"], ["name", "embeds"]]
+  ↳ app/controllers/posts_controller.rb:30:in `block in create'
+  [1m[36mPost Update (0.3ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2024-12-03 05:10:12.692721"], ["id", 25]]
+  ↳ app/controllers/posts_controller.rb:30:in `block in create'
+  [1m[36mTRANSACTION (21.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/forums/12
+Completed 302 Found in 113ms (ActiveRecord: 29.6ms | Allocations: 6796)
+
+
+Started GET "/forums/12" for 172.17.0.1 at 2024-12-03 05:10:12 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#show as TURBO_STREAM
+  Parameters: {"id"=>"12"}
+  [1m[36mForum Load (6.1ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/show.html.erb within layouts/application
+  [1m[36mCitizen Load (2.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mCitizen Load (1.2ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:6
+  [1m[36mPost Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."forum_id" = ? LIMIT ?[0m  [["forum_id", 12], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:17
+  [1m[36mPost Load (3.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."forum_id" = ?[0m  [["forum_id", 12]]
+  ↳ app/views/forums/show.html.erb:18
+  [1m[36mActionText::RichText Load (1.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.9ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (4.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 21], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (0.9ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 23], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 24], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  [1m[36mActionText::RichText Load (1.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 25], ["record_type", "Post"], ["name", "text"], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:19
+  [1m[36mCACHE Citizen Load (0.0ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/forums/show.html.erb:21
+  Rendered forums/show.html.erb within layouts/application (Duration: 197.6ms | Allocations: 11465)
+  Rendered layout layouts/application.html.erb (Duration: 204.2ms | Allocations: 11968)
+Completed 200 OK in 299ms (Views: 194.4ms | ActiveRecord: 25.1ms | Allocations: 12578)
+
+
+Started GET "/forums/12/edit" for 172.17.0.1 at 2024-12-03 05:10:52 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mCitizen Load (0.5ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (0.8ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/edit.html.erb within layouts/application
+  Rendered forums/_form.html.erb (Duration: 51.1ms | Allocations: 3315)
+  Rendered forums/edit.html.erb within layouts/application (Duration: 115.6ms | Allocations: 3660)
+  Rendered layout layouts/application.html.erb (Duration: 121.3ms | Allocations: 4171)
+Completed 200 OK in 204ms (Views: 124.7ms | ActiveRecord: 1.3ms | Allocations: 6143)
+
+
+Started GET "/forums/12/edit" for 172.17.0.1 at 2024-12-03 05:10:54 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ForumsController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mCitizen Load (1.1ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (0.7ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/forums_controller.rb:65:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering forums/edit.html.erb within layouts/application
+  Rendered forums/_form.html.erb (Duration: 2.4ms | Allocations: 578)
+  Rendered forums/edit.html.erb within layouts/application (Duration: 4.0ms | Allocations: 682)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 1193)
+Completed 200 OK in 54ms (Views: 11.8ms | ActiveRecord: 1.7ms | Allocations: 3099)
+
+
+Started GET "/forums/12/posts/new" for 172.17.0.1 at 2024-12-03 05:11:10 +0000
+Cannot render console from 172.17.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  Parameters: {"forum_id"=>"12"}
+  [1m[36mCitizen Load (0.5ms)[0m  [1m[34mSELECT "citizens".* FROM "citizens" WHERE "citizens"."id" = ? ORDER BY "citizens"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mForum Load (1.0ms)[0m  [1m[34mSELECT "forums".* FROM "forums" WHERE "forums"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:70:in `set_forum'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 2.3ms | Allocations: 807)
+  Rendered posts/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 870)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 1381)
+Completed 200 OK in 38ms (Views: 7.9ms | ActiveRecord: 1.5ms | Allocations: 3291)
+
+
